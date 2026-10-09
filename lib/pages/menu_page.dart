@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MenuPage extends StatelessWidget {
+class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
 
+  @override
+  State<MenuPage> createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
   static const List<String> categories = [
     'Formules',
     'Entrées',
@@ -10,6 +15,8 @@ class MenuPage extends StatelessWidget {
     'Desserts',
     'Boissons',
   ];
+
+  int selectedCategory = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,19 @@ class MenuPage extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            selectedCategory = index;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: selectedCategory == index
+                              ? Colors.deepPurple
+                              : Colors.grey[200],
+                          foregroundColor: selectedCategory == index
+                              ? Colors.white
+                              : Colors.black,
+                        ),
                         child: Text(categories[index]),
                       ),
                     );
