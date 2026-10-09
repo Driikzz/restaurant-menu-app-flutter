@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'pages/menu_page.dart';
 
 void main() {
   runApp(const RestaurantApp());
@@ -11,11 +12,7 @@ class RestaurantApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Menu du Restaurant',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Menu du Restaurant'),
-        ),
-      ),
+      home: const MenuPage(),
     );
   }
 }
