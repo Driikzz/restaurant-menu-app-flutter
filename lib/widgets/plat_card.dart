@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/plat.dart';
 
-
 class PlatCard extends StatelessWidget {
   final Plat plat;
 
@@ -19,6 +18,16 @@ class PlatCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                plat.image,
+                height: 180,
+                width: double.infinity,
+                fit: BoxFit.contain,
+              ),
+            ),
+            const SizedBox(height: 10),
             Text(
               plat.nom,
               style: const TextStyle(
