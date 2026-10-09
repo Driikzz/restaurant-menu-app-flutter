@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/plat.dart';
+import '../widgets/plat_card.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -64,8 +65,18 @@ class _MenuPageState extends State<MenuPage> {
     ),
   ];
 
+  List<Plat> getPlatsCategorie() {
+    String categorie = categories[selectedCategory];
+
+    return plats
+        .where((plat) => plat.categorie == categorie)
+        .toList();
+  }
+
   @override
   Widget build(BuildContext context) {
+    List<Plat> platsCategorie = getPlatsCategorie();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Menu du Restaurant'),
@@ -102,6 +113,18 @@ class _MenuPageState extends State<MenuPage> {
                   },
                 ),
               ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: platsCategorie.length,
+              itemBuilder: (BuildContext context, int index) {
+                Plat plat = platsCategorie[index];
+
+                return PlatCard(
+                  plat: plat,
+                );
+              },
             ),
           ),
         ],
