@@ -65,6 +65,7 @@ class _MenuPageState extends State<MenuPage> {
     ),
   ];
 
+  // Filtre les plats pour afficher uniquement ceux appartenan à la catégorie sélectionnée.
   List<Plat> getPlatsCategorie() {
     String categorie = categories[selectedCategory];
 
@@ -79,10 +80,11 @@ class _MenuPageState extends State<MenuPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Menu du Restaurant'),
+        title: const Text('Menu du mimi Restaurant'),
       ),
       body: Column(
         children: [
+          // Le scroll horizontal permet de parcourir les catégories.
           SizedBox(
             height: 60,
             child: SingleChildScrollView(
@@ -106,6 +108,9 @@ class _MenuPageState extends State<MenuPage> {
                           foregroundColor: selectedCategory == index
                               ? Colors.white
                               : Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                         child: Text(categories[index]),
                       ),
@@ -115,6 +120,8 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ),
           ),
+
+          // Expanded utilise l'espace restant de la Column et le ListView permet de faire défiler les plats verticalement.
           Expanded(
             child: ListView.builder(
               itemCount: platsCategorie.length,

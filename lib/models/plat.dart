@@ -1,3 +1,4 @@
+// Cette classe définit les datas d'un plat.
 class Plat {
   final String nom;
   final String image;

@@ -11,7 +11,7 @@ class RestaurantApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Menu du Restaurant',
+      title: 'Menu du Mimi Restaurant',
       home: const MenuPage(),
     );
   }

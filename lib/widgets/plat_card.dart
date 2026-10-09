@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/plat.dart';
 
+// Widget réutilisable pour afficher les datas d'un plat.
 class PlatCard extends StatelessWidget {
   final Plat plat;
 
